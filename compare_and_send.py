@@ -9,6 +9,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 import pandas as pd
 import os
+import sys
 
 # Función para extraer el valor de "keywords" de la URL y reemplazar espacios por "_"
 def extraer_keywords(url):
@@ -23,7 +24,6 @@ def enviar_correo(nuevos_items, email_origen, email_destino, keywords):
     puerto = 587
     correo_origen = email_origen
     contraseña = "tu_contraseña_de_aplicacion"
-
 
     if not email_destino:
         email_destino = correo_origen
@@ -90,19 +90,15 @@ try:
 except Exception as e:
     print(f"Error al aceptar las cookies: {e}")
 
-# Scroll hasta cargar todos los ítems
-last_height = driver.execute_script("return document.body.scrollHeight")
-while True:
-    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(2)
-    new_height = driver.execute_script("return document.body.scrollHeight")
-    if new_height == last_height:
-        break
-    last_height = new_height
+# Esperar 25 segundos con un contador regresivo para que la página cargue completamente
+print("Esperando 25 segundos para que la página cargue completamente...")
+for remaining in range(25, 0, -1):
+    sys.stdout.write("\r{} segundos restantes...".format(remaining))
+    sys.stdout.flush()
+    time.sleep(1)
+print("\nContinuando con la ejecución...")
 
-# Esperar para que los ítems carguen completamente
-time.sleep(5)
-
+# Extraer los ítems sin esperas adicionales
 try:
     items = driver.find_elements(By.CLASS_NAME, 'ItemCardList__item')
     if items:
@@ -157,4 +153,5 @@ try:
 except Exception as e:
     print(f"Error al esperar los ítems: {e}")
 
+# Cerrar el navegador
 driver.quit()
