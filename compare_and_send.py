@@ -10,18 +10,19 @@ from selenium.webdriver.common.by import By
 import pandas as pd
 import os
 
-# Función para extraer el valor de "keywords" de la URL
+# Función para extraer el valor de "keywords" de la URL y reemplazar espacios por "_"
 def extraer_keywords(url):
     parsed_url = urlparse(url)
     query_params = parse_qs(parsed_url.query)
-    return query_params.get('keywords', [''])[0]  # Devuelve el valor de 'keywords' o una cadena vacía si no está presente
+    keywords = query_params.get('keywords', [''])[0]  # Obtén el valor de 'keywords'
+    return keywords.replace(' ', '_')  # Reemplaza los espacios por "_"
 
 # Función para enviar un correo electrónico
 def enviar_correo(nuevos_items, email_origen, email_destino, keywords):
     servidor = "smtp.gmail.com"
     puerto = 587
     correo_origen = email_origen
-    contraseña = "judoqlavqgiyujzv"
+    contraseña = "xxxxxxxxxxxxxxxxxxxxx"
 
     if not email_destino:
         email_destino = correo_origen
@@ -48,17 +49,21 @@ def enviar_correo(nuevos_items, email_origen, email_destino, keywords):
     except Exception as e:
         print(f"Error al enviar correo: {e}")
 
-# Configuración del argumento para la URL
+# Configuración del argumento para la URL y CSV
 parser = argparse.ArgumentParser(description="Wallapop scraper")
 parser.add_argument('--url', type=str, required=True, help="URL de la búsqueda en Wallapop")
 parser.add_argument('--email', type=str, required=False, help="Dirección de correo electrónico para enviar notificaciones (opcional)")
+parser.add_argument('--csv', type=str, required=False, help="Nombre del archivo CSV para guardar y comparar los ítems (opcional)")
 args = parser.parse_args()
 
 # Extraer el valor de "keywords" de la URL
 keywords = extraer_keywords(args.url)
 
+# Nombre del archivo CSV (por defecto, basado en el keyword)
+csv_filename = args.csv if args.csv else f"items_{keywords}.csv"
+
 # Dirección de origen (tu correo de Gmail)
-email_origen = "bbolson@gmail.com"
+email_origen = "xxxxxxxxxxxxx@gmail.com"
 
 # Dirección de destino (opcional)
 email_destino = args.email
@@ -130,12 +135,12 @@ try:
                 print(f"Error al extraer datos de un ítem: {e}")
 
         previous_items = []
-        if os.path.exists('items.csv'):
-            previous_items = pd.read_csv('items.csv').to_dict('records')
+        if os.path.exists(csv_filename):
+            previous_items = pd.read_csv(csv_filename).to_dict('records')
 
         df = pd.DataFrame(item_list)
-        df.to_csv('items.csv', index=False)
-        print(f"CSV creado con éxito. Se guardaron {count} ítems no reservados.")
+        df.to_csv(csv_filename, index=False)
+        print(f"CSV '{csv_filename}' creado con éxito. Se guardaron {count} ítems no reservados.")
 
         if previous_items:
             nuevos_items = [item for item in item_list if item not in previous_items]
