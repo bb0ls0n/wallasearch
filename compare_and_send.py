@@ -24,6 +24,7 @@ def enviar_correo(nuevos_items, email_origen, email_destino, keywords):
     correo_origen = email_origen
     contraseña = "tu_contraseña_de_aplicacion"
 
+
     if not email_destino:
         email_destino = correo_origen
 
