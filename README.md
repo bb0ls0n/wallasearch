@@ -8,6 +8,12 @@ Cuando realizas una búsqueda en Wallapop, los ítems más baratos suelen desapa
 
 Este script fue creado para solucionar este problema. Te permite realizar una búsqueda automatizada en Wallapop, filtrar los ítems que no están en modo "reservado", y configurar un cron job que ejecute el script de manera regular para que te notifique de nuevos ítems en esa búsqueda específica. De esta forma, recibirás una notificación por correo con los ítems nuevos detectados, permitiéndote actuar más rápido que con las notificaciones push estándar de Wallapop.
 
+## Nota importante
+
+Este script está aprobado y probado únicamente en **macOS** y en distribuciones de **Linux** con el navegador **Chrome**. Es importante destacar que **no es compatible con Chromium** en Linux, por lo que deberás asegurarte de instalar **Google Chrome**.
+
+Además, en sistemas **Linux** solo funcionará en arquitecturas **AMD64**. Si utilizas un portátil o servidor con arquitectura **ARM64**, **Chrome no está disponible** para esa arquitectura en Linux. Por lo tanto, el script **no funcionará** en sistemas Linux basados en ARM64. Si tienes un sistema ARM64, deberás considerar usar macOS o una máquina virtual con arquitectura compatible para ejecutar este script correctamente.
+
 ## ¿Cómo usar el script para notificar tu búsqueda?
 
 Es muy sencillo escoger la lista de productos que deseas trackear en Wallapop. Sigue estos pasos:
@@ -29,7 +35,7 @@ De esta manera, el script buscará periódicamente los nuevos ítems que aparezc
 - **Python 3.x**
 - **Google Chrome**
 - **ChromeDriver** (versión compatible con tu navegador)
-- **Cuenta de Gmail con una [contraseña de aplicación](https://support.google.com/mail/answer/185833?hl=es)**
+- **Cuenta de Gmail con una [contraseña de aplicación](https://myaccount.google.com/apppasswords)**
 
 ## 1. Configuración del entorno virtual
 
