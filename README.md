@@ -106,7 +106,11 @@ Gmail requiere una **contraseña de aplicación** para enviar correos desde un s
    - Gmail generará una contraseña de aplicación de 16 caracteres.
 
 3. **Uso de la contraseña de aplicación en el script**:
-   - En el campo `contraseña` del script, usa esta contraseña de aplicación sin espacios.
+   - En el campo `tu_contraseña_de_aplicacion` del script, usa esta contraseña de aplicación sin espacios.
+
+   ```python
+   contraseña = "tu_contraseña_de_aplicacion"
+   ```
 
 ## 7. Estructura del directorio
 
@@ -117,7 +121,7 @@ wallapop_env/
 │
 ├── list.py                   # Script Python
 ├── requirements.txt           # Lista de dependencias
-└── items.csv                  # Archivo CSV que contiene la lista de ítems comparada
+└── {keywords}.csv               # Archivo CSV que contiene la lista de ítems comparada
 ```
 
 ## 8. Ejecución del script
@@ -138,10 +142,10 @@ Una vez configurado el entorno y activadas las dependencias, puedes ejecutar el 
 
 - Si no proporcionas un correo electrónico con `--email`, el correo se enviará a tu dirección de Gmail (la misma que configures como origen en el script).
 
-- **Nota**: Dentro del script se configura el parámetro `email_origen = "tuemail@gmail.com"` como la dirección de origen y también como la dirección de destino por defecto para las notificaciones:
+- **Nota**: Dentro del script se configura el parámetro `email_origen` como la dirección de origen y también como la dirección de destino por defecto para las notificaciones:
 
     ```python
-    email_origen = "xxxxxxxxx@gmail.com"
+    email_origen = "tuemail@gmail.com"
     ```
 
 - Asegúrate de actualizar este campo con tu dirección de Gmail para que el script funcione correctamente.
