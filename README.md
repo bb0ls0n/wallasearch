@@ -132,6 +132,14 @@ Una vez configurado el entorno y activadas las dependencias, puedes ejecutar el 
 
 - Si no proporcionas un correo electrónico con `--email`, el correo se enviará a tu dirección de Gmail (la misma que configures como origen en el script).
 
+- **Nota**: Dentro del script se configura el parámetro `email_origen = "tuemail@gmail.com"` como la dirección de origen y también como la dirección de destino por defecto para las notificaciones:
+
+    ```python
+    email_origen = "xxxxxxxxx@gmail.com"
+    ```
+
+- Asegúrate de actualizar este campo con tu dirección de Gmail para que el script funcione correctamente.
+
 ## 9. Automatización del script (Opcional)
 
 Si deseas automatizar la ejecución del script, por ejemplo, cada hora, puedes configurar un cron job.
