@@ -12,7 +12,7 @@ Este script fue creado para solucionar este problema. Te permite realizar una b�
 
 Este script está aprobado y probado únicamente en **macOS** y en distribuciones de **Linux** con el navegador **Chrome**. Es importante destacar que **no es compatible con Chromium** en Linux, por lo que deberás asegurarte de instalar **Google Chrome**.
 
-Además, en sistemas **Linux** solo funcionará en arquitecturas **AMD64**. Si utilizas un portátil o servidor con arquitectura **ARM64**, **Chrome no está disponible** para esa arquitectura en Linux. Por lo tanto, el script **no funcionará** en sistemas Linux basados en ARM64. Si tienes un sistema ARM64, deberás considerar usar macOS o una máquina virtual con arquitectura compatible para ejecutar este script correctamente.
+Además, en sistemas Linux, el script solo es compatible con arquitecturas **AMD64**, ya que **Chrome** no está disponible para **ARM64** en esta plataforma. Si tu dispositivo utiliza una arquitectura **ARM64**, el script no funcionará en Linux. En este caso, te recomendamos utilizar **macOS** o una máquina virtual con una arquitectura compatible.
 
 ## ¿Cómo usar el script para notificar tu búsqueda?
 
