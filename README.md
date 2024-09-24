@@ -32,7 +32,7 @@ De esta manera, el script buscará periódicamente los nuevos ítems que aparezc
 
 ## Requisitos
 
-- **Python 3.x**
+- **Python 3.12.x** (Probado en version 3.12.6)
 - **Google Chrome**
 - **ChromeDriver** (versión compatible con tu navegador)
 - **Cuenta de Gmail con una [contraseña de aplicación](https://myaccount.google.com/apppasswords)**
