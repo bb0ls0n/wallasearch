@@ -21,7 +21,7 @@ def enviar_correo(nuevos_items, email_origen, email_destino, keywords):
     servidor = "smtp.gmail.com"
     puerto = 587
     correo_origen = email_origen
-    contraseña = "judoqlavqgiyujzv"
+    contraseña = "xxxxxxxxxxx"
 
     if not email_destino:
         email_destino = correo_origen
@@ -58,7 +58,7 @@ args = parser.parse_args()
 keywords = extraer_keywords(args.url)
 
 # Dirección de origen (tu correo de Gmail)
-email_origen = "bbolson@gmail.com"
+email_origen = "xxxxxxxxx@gmail.com"
 
 # Dirección de destino (opcional)
 email_destino = args.email
