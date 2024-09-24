@@ -22,7 +22,7 @@ def enviar_correo(nuevos_items, email_origen, email_destino, keywords):
     servidor = "smtp.gmail.com"
     puerto = 587
     correo_origen = email_origen
-    contraseña = "xxxxxxxxxxxxxxxxxxxxx"
+    contraseña = "tu_contraseña_de_aplicacion"
 
     if not email_destino:
         email_destino = correo_origen
@@ -63,7 +63,7 @@ keywords = extraer_keywords(args.url)
 csv_filename = args.csv if args.csv else f"items_{keywords}.csv"
 
 # Dirección de origen (tu correo de Gmail)
-email_origen = "xxxxxxxxxxxxx@gmail.com"
+email_origen = "tuemail@gmail.com"
 
 # Dirección de destino (opcional)
 email_destino = args.email
